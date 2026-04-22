@@ -8,15 +8,13 @@
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; connect-src 'self'; font-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
     <title>Concilia - Calculadora de Vendas</title>
-    
-    <!-- Tailwind CSS (via CDN) -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // Substituindo o "emerald" padrão pela paleta Viaflex (#2c6d5a como base 700)
                         emerald: {
                             50: '#f2f7f5',
                             100: '#e1efe9',
@@ -36,12 +34,11 @@
         }
     </script>
     
-    <!-- Lucide Icons -->
+   
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="min-h-screen bg-slate-50 font-sans text-slate-900">
-
-    <!-- Navigation -->
+    
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
@@ -60,7 +57,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="bg-emerald-900 text-white py-20 lg:py-32 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full fill-current">
@@ -99,7 +95,6 @@
         </div>
     </section>
 
-    <!-- Calculator Section -->
     <section id="calculadora" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -109,7 +104,6 @@
                 </p>
             </div>
 
-            <!-- Fix here: Removed overflow-hidden to allow the popup to escape the container bounds -->
             <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col lg:flex-row">
                 
                 <div class="w-full lg:w-5/12 p-8 lg:p-12 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-center space-y-8 rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
@@ -161,7 +155,6 @@
                                 <i data-lucide="info" class="w-3 h-3"></i> Fonte: ANP e EQ/UFRJ
                             </button>
                             
-                            <!-- Breakdown Popup (Z-index high, absolute positioned) -->
                             <div id="breakdown-popup" class="hidden absolute z-50 top-full mt-2 left-0 w-full md:w-96 bg-white border border-slate-200 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] rounded-xl p-5 text-slate-600 text-xs space-y-3">
                                 <p><strong>Erros Operacionais e de Medição (40%):</strong> É a maior fatia do prejuízo financeiro. Inclui diferenças entre o que diz a nota fiscal e o que realmente cai no tanque, erros de leitura da régua manual e bombas descalibradas entregando mais produto do que cobram.</p>
                                 <p><strong>Evaporação (30%):</strong> Combustível que vira gás e se perde na atmosfera durante o descarregamento ou pelos respiros dos tanques.</p>
@@ -213,7 +206,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE SOLUÇÃO -->
 <section id="solucao" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -423,14 +415,12 @@
         </div>
     </section>
 
-    <!-- Lead Qualification Form CTA -->
     <section id="contato" class="bg-emerald-950 py-24 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Text Content -->
                 <div>
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para blindar o caixa dos seus postos?</h2>
                     <p class="text-emerald-100 text-lg mb-8 leading-relaxed">
@@ -477,7 +467,6 @@
                     </div>
                 </div>
 
-                <!-- Form -->
                 <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl relative">
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400 rounded-full blur-3xl opacity-20"></div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Demonstração Gratuita</h3>
@@ -540,7 +529,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-8 text-center text-sm">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             
@@ -553,12 +541,9 @@
         </div>
     </footer>
 
-    <!-- Interactive Logic (Vanilla JavaScript) -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Formatter function for Brazilian Real (BRL)
         const formatCurrency = (value) => {
             return new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
@@ -571,13 +556,11 @@
             return new Intl.NumberFormat('pt-BR').format(value);
         }
 
-        // Get Input Elements
         const stationsInput = document.getElementById('stations-input');
         const volumeInput = document.getElementById('volume-input');
         const priceInput = document.getElementById('price-input');
         const lossInput = document.getElementById('loss-input');
 
-        // Get Display Elements
         const stationsDisplay = document.getElementById('stations-display');
         const volumeDisplay = document.getElementById('volume-display');
         const priceDisplay = document.getElementById('price-display');
@@ -588,20 +571,17 @@
         const lossVolumeDisplay = document.getElementById('loss-volume-display');
         const savingsDisplay = document.getElementById('savings-display');
 
-        // Function to recalculate and update DOM
         function calculateROI() {
             const stations = parseFloat(stationsInput.value);
             const volumePerStation = parseFloat(volumeInput.value);
             const pricePerLiter = parseFloat(priceInput.value);
             const lossPercentage = parseFloat(lossInput.value);
 
-            // Update Input Texts
             stationsDisplay.textContent = `${stations} ${stations === 1 ? 'unidade' : 'unidades'}`;
             volumeDisplay.textContent = `${formatNumber(volumePerStation)} L`;
             priceDisplay.textContent = `R$ ${pricePerLiter.toFixed(2).replace('.', ',')}`;
             lossDisplay.textContent = `${lossPercentage.toFixed(2)}%`;
 
-            // Core Math
             const totalMonthlyVolume = stations * volumePerStation;
             const monthlyLossVolume = totalMonthlyVolume * (lossPercentage / 100);
             const monthlyFinancialLoss = monthlyLossVolume * pricePerLiter;
@@ -609,22 +589,18 @@
 
             const estimatedMonthlySavings = monthlyFinancialLoss * 0.55;
 
-            // Update Results Texts
             monthlyLossDisplayMain.textContent = formatCurrency(monthlyFinancialLoss);
             yearlyLossDisplaySub.textContent = formatCurrency(yearlyFinancialLoss);
             lossVolumeDisplay.textContent = formatNumber(monthlyLossVolume);
             savingsDisplay.textContent = formatCurrency(estimatedMonthlySavings);
         }
 
-        // Add Event Listeners to inputs
         [stationsInput, volumeInput, priceInput, lossInput].forEach(input => {
             input.addEventListener('input', calculateROI);
         });
 
-        // Initialize calculator with default values
         calculateROI();
 
-        // Breakdown Popup Logic
         const btnBreakdown = document.getElementById('btn-breakdown');
         const btnCloseBreakdown = document.getElementById('btn-close-breakdown');
         const breakdownPopup = document.getElementById('breakdown-popup');
@@ -672,7 +648,6 @@
                 return;
             }
 
-            // Honeypot anti-bot field.
             const websiteField = document.getElementById('lead-website');
             if (websiteField.value.trim() !== '') {
                 return;
@@ -688,8 +663,6 @@
             const calculatedMonthlyLoss = monthlyLossDisplayMain.textContent.trim();
             const calculatedYearlyLoss = yearlyLossDisplaySub.textContent.trim();
             const estimatedSavings = savingsDisplay.textContent.trim();
-
-            // Troque pelo WhatsApp comercial real no formato DDI + DDD + numero (somente digitos).
             const whatsappNumber = '554884667311';
 
             const message = [

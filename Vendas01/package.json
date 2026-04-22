@@ -1,0 +1,12 @@
+{
+  "name": "concilia-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build de produção para a landing page Concilia",
+  "scripts": {
+    "build": "node ./scripts/build.mjs"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
