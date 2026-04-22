@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; connect-src 'self'; font-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
     <title>Concilia - Calculadora de Vendas</title>
     
     <!-- Tailwind CSS (via CDN) -->
@@ -43,7 +47,7 @@
             
             <div class="flex items-center">
                 <a href="#">
-                    <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\logo_concilia_green.png" alt="Logo Concilia" class="h-10 w-auto">
+                    <img src="imagens/logo_concilia_green.png" alt="Logo Concilia" class="h-10 w-auto">
                 </a>
             </div>
             <div class="hidden md:flex space-x-8">
@@ -86,7 +90,7 @@
 
                 <div class="relative hidden lg:block">
                     <img 
-                        src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\mockup.png" 
+                        src="imagens/mockup.png" 
                         alt="Dashboard Concilia" 
                         class="rounded-2xl shadow-2xl w-full object-cover border border-emerald-700/50"
                     />
@@ -303,7 +307,7 @@
                         </ul>
                     </div>
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\mapa.png" alt="Dashboard Geográfico" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                        <img src="imagens/mapa.png" alt="Dashboard Geográfico" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -330,7 +334,7 @@
                         </ul>
                     </div>
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\multiposto.png" alt="Multiposto" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                        <img src="imagens/multiposto.png" alt="Multiposto" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -357,7 +361,7 @@
                         </ul>
                     </div>
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\tanque.png" alt="Tanque" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                        <img src="imagens/tanque.png" alt="Tanque" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -411,7 +415,7 @@
                         </div>
                     </div>
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\reposicaointeligente.png" alt="Reposição Inteligente" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                        <img src="imagens/reposicaointeligente.png" alt="Reposição Inteligente" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -478,32 +482,32 @@
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400 rounded-full blur-3xl opacity-20"></div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Demonstração Gratuita</h3>
                     
-                    <form id="lead-form" class="space-y-4">
+                    <form id="lead-form" class="space-y-4" novalidate>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">Nome Completo</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" />
+                                <label for="lead-name" class="block text-sm font-medium text-slate-700 mb-1">Nome Completo</label>
+                                <input id="lead-name" name="nome" type="text" minlength="3" maxlength="120" autocomplete="name" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" />
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">Empresa / Rede</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Nome do posto" />
+                                <label for="lead-company" class="block text-sm font-medium text-slate-700 mb-1">Empresa / Rede</label>
+                                <input id="lead-company" name="empresa" type="text" minlength="2" maxlength="120" autocomplete="organization" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Nome do posto" />
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">E-mail Profissional</label>
-                                <input type="email" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="voce@empresa.com.br" />
+                                <label for="lead-email" class="block text-sm font-medium text-slate-700 mb-1">E-mail Profissional</label>
+                                <input id="lead-email" name="email" type="email" maxlength="160" autocomplete="email" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="voce@empresa.com.br" />
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">Telefone / WhatsApp</label>
-                                <input type="tel" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(00) 00000-0000" />
+                                <label for="lead-phone" class="block text-sm font-medium text-slate-700 mb-1">Telefone / WhatsApp</label>
+                                <input id="lead-phone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(00) 00000-0000" />
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1">Quantos postos possui na rede?</label>
-                            <select class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                            <label for="lead-stations" class="block text-sm font-medium text-slate-700 mb-1">Quantos postos possui na rede?</label>
+                            <select id="lead-stations" name="faixa_postos" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
                                 <option value="1-3">1 a 3 postos</option>
                                 <option value="4-10">4 a 10 postos</option>
                                 <option value="11-30">11 a 30 postos</option>
@@ -512,8 +516,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1">Qual é o seu maior desafio hoje?</label>
-                            <select class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                            <label for="lead-challenge" class="block text-sm font-medium text-slate-700 mb-1">Qual é o seu maior desafio hoje?</label>
+                            <select id="lead-challenge" name="desafio" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
                                 <option value="Controle de Estoque">Perdas e Controle de Estoque</option>
                                 <option value="Logística">Problemas na Logística / Frete</option>
                                 <option value="Conferência de Descargas">Dificuldade em auditar descargas</option>
@@ -521,6 +525,8 @@
                                 <option value="Outro">Outros desafios</option>
                             </select>
                         </div>
+
+                        <input type="text" name="website" id="lead-website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
                         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/30 mt-4 flex justify-center items-center gap-2">
                             Agendar Demonstração <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -540,7 +546,7 @@
             
             <div class="flex items-center">
                 <a href="#">
-                    <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\logo_concilia_white.png" alt="Logo Concilia" class="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity">
+                    <img src="imagens/logo_concilia_white.png" alt="Logo Concilia" class="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity">
                 </a>
             </div>
             <p>© 2026 Viaflex. Todos os direitos reservados.</p>
@@ -631,11 +637,85 @@
             breakdownPopup.classList.add('hidden');
         });
 
-        // Form Submit Prevent Default (for demonstration purposes)
-        document.getElementById('lead-form').addEventListener('submit', function(e) {
+        const leadForm = document.getElementById('lead-form');
+        const leadPhone = document.getElementById('lead-phone');
+
+        leadPhone.addEventListener('input', (event) => {
+            const digits = event.target.value.replace(/\D/g, '').slice(0, 11);
+            if (digits.length <= 10) {
+                event.target.value = digits.replace(/(\d{0,2})(\d{0,4})(\d{0,4})/, (_, ddd, part1, part2) => {
+                    let formatted = '';
+                    if (ddd) formatted += `(${ddd}`;
+                    if (ddd.length === 2) formatted += ') ';
+                    if (part1) formatted += part1;
+                    if (part2) formatted += `-${part2}`;
+                    return formatted.trim();
+                });
+                return;
+            }
+
+            event.target.value = digits.replace(/(\d{0,2})(\d{0,5})(\d{0,4})/, (_, ddd, part1, part2) => {
+                let formatted = '';
+                if (ddd) formatted += `(${ddd}`;
+                if (ddd.length === 2) formatted += ') ';
+                if (part1) formatted += part1;
+                if (part2) formatted += `-${part2}`;
+                return formatted.trim();
+            });
+        });
+
+        leadForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Formulário enviado com sucesso! Nosso especialista entrará em contato em breve.');
-            this.reset();
+
+            if (!leadForm.checkValidity()) {
+                leadForm.reportValidity();
+                return;
+            }
+
+            // Honeypot anti-bot field.
+            const websiteField = document.getElementById('lead-website');
+            if (websiteField.value.trim() !== '') {
+                return;
+            }
+
+            const name = document.getElementById('lead-name').value.trim();
+            const company = document.getElementById('lead-company').value.trim();
+            const email = document.getElementById('lead-email').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            const stationsRange = document.getElementById('lead-stations').value;
+            const challenge = document.getElementById('lead-challenge').value;
+
+            const calculatedMonthlyLoss = monthlyLossDisplayMain.textContent.trim();
+            const calculatedYearlyLoss = yearlyLossDisplaySub.textContent.trim();
+            const estimatedSavings = savingsDisplay.textContent.trim();
+
+            // Troque pelo WhatsApp comercial real no formato DDI + DDD + numero (somente digitos).
+            const whatsappNumber = '554884667311';
+
+            const message = [
+                'Olá! Quero solicitar uma demonstração do Concilia.',
+                '',
+                `Nome: ${name}`,
+                `Empresa/Rede: ${company}`,
+                `E-mail: ${email}`,
+                `Telefone: ${phone}`,
+                `Faixa de postos: ${stationsRange}`,
+                `Maior desafio: ${challenge}`,
+                '',
+                'Simulação da calculadora:',
+                `Prejuízo mensal estimado: ${calculatedMonthlyLoss}`,
+                `Prejuízo anual estimado: ${calculatedYearlyLoss}`,
+                `Potencial de recuperação mensal: ${estimatedSavings}`
+            ].join('\n');
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+            if (!whatsappWindow) {
+                window.location.href = whatsappUrl;
+            }
+
+            leadForm.reset();
         });
     </script>
 </body>
