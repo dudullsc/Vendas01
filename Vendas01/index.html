@@ -37,27 +37,28 @@
    
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="min-h-screen bg-slate-50 font-sans text-slate-900">
+<body class="min-h-screen overflow-x-hidden bg-slate-50 font-sans text-slate-900">
     
     <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-auto sm:h-20 py-3 sm:py-0 flex items-center justify-between gap-3">
             
             <div class="flex items-center">
                 <a href="#">
-                    <img src="imagens/logo_concilia_green.png" alt="Logo Concilia" class="h-10 w-auto">
+                    <img src="imagens/logo_concilia_green.png" alt="Logo Concilia" class="h-8 sm:h-10 w-auto">
                 </a>
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="#calculadora" class="text-slate-600 hover:text-emerald-700 font-medium transition-colors">Calculadora de Prejuízo Invisível</a>
                 <a href="#solucao" class="text-slate-600 hover:text-emerald-700 font-medium transition-colors">Conheça o Concilia</a>
             </div>
-            <a href="#contato" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                Falar com Especialista
+            <a href="#contato" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 whitespace-nowrap">
+                <span class="sm:hidden">Contato</span>
+                <span class="hidden sm:inline">Falar com Especialista</span>
             </a>
         </div>
     </nav>
 
-    <section class="bg-emerald-900 text-white py-20 lg:py-32 relative overflow-hidden">
+    <section class="bg-emerald-900 text-white py-14 sm:py-20 lg:py-32 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full fill-current">
                 <polygon points="0,100 100,0 100,100" />
@@ -65,20 +66,20 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="space-y-6 sm:space-y-8">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-800/50 border border-emerald-700/50 backdrop-blur-sm text-emerald-100 text-sm font-medium">
                         <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
                         Pare de perder dinheiro
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                         Seu lucro está evaporando sem você saber?
                     </h1>
-                    <p class="text-lg md:text-xl text-emerald-100/90 leading-relaxed max-w-lg">
+                    <p class="text-base sm:text-lg md:text-xl text-emerald-100/90 leading-relaxed max-w-lg">
                         Erros de descarga, frete ineficiente e vazamentos não detectados corroem até 1% do faturamento da sua rede. O <strong>Concilia</strong> transforma dados com inteligência em lucro imediato!
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#calculadora" class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 w-max">
+                        <a href="#calculadora" class="bg-white text-emerald-900 hover:bg-emerald-50 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 w-full sm:w-max">
                             Calcular meu prejuízo invisível <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
                     </div>
@@ -95,10 +96,10 @@
         </div>
     </section>
 
-    <section id="calculadora" class="py-24 bg-white">
+    <section id="calculadora" class="py-16 sm:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Calculadora de Prejuízo Invisível</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">Calculadora de Prejuízo Invisível</h2>
                 <p class="text-lg text-slate-600">
                     Mova os controles abaixo com os dados reais da sua operação. Descubra o quanto a falta de conciliação precisa e a logística reativa estão custando ao seu negócio por ano.
                 </p>
@@ -106,12 +107,12 @@
 
             <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col lg:flex-row">
                 
-                <div class="w-full lg:w-5/12 p-8 lg:p-12 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-center space-y-8 rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
+                <div class="w-full lg:w-5/12 p-5 sm:p-8 lg:p-12 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-center space-y-8 rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
                     
                     <div>
-                        <div class="flex justify-between mb-2">
+                        <div class="flex items-start justify-between gap-3 mb-2">
                             <label class="font-semibold text-slate-700">Número de Postos na Rede</label>
-                            <span class="font-bold text-emerald-700" id="stations-display">1 unidade</span>
+                            <span class="font-bold text-emerald-700 text-right" id="stations-display">1 unidade</span>
                         </div>
                         <input 
                             type="range" min="1" max="50" step="1" value="1" id="stations-input"
@@ -120,9 +121,9 @@
                     </div>
 
                     <div>
-                        <div class="flex justify-between mb-2">
+                        <div class="flex items-start justify-between gap-3 mb-2">
                             <label class="font-semibold text-slate-700">Venda Média p/ Posto (Litros/Mês)</label>
-                            <span class="font-bold text-emerald-700" id="volume-display">300.000 L</span>
+                            <span class="font-bold text-emerald-700 text-right" id="volume-display">300.000 L</span>
                         </div>
                         <input 
                             type="range" min="50000" max="1000000" step="10000" value="300000" id="volume-input"
@@ -131,9 +132,9 @@
                     </div>
 
                     <div>
-                        <div class="flex justify-between mb-2">
+                        <div class="flex items-start justify-between gap-3 mb-2">
                             <label class="font-semibold text-slate-700">Preço Médio de Venda (R$)</label>
-                            <span class="font-bold text-emerald-700" id="price-display">R$ 5,80</span>
+                            <span class="font-bold text-emerald-700 text-right" id="price-display">R$ 5,80</span>
                         </div>
                         <input 
                             type="range" min="4.00" max="8.00" step="0.10" value="5.80" id="price-input"
@@ -142,9 +143,9 @@
                     </div>
 
                     <div>
-                        <div class="flex justify-between mb-2">
+                        <div class="flex items-start justify-between gap-3 mb-2">
                             <label class="font-semibold text-slate-700">Estimativa de Perda (Sobras/Faltas) %</label>
-                            <span class="font-bold text-red-600" id="loss-display">0.60%</span>
+                            <span class="font-bold text-red-600 text-right" id="loss-display">0.60%</span>
                         </div>
                         <div class="text-xs text-slate-500 mb-2 relative">
                             A média de mercado por erro de medição, temperatura e descargas imprecisas é de 0.6%.
@@ -172,25 +173,26 @@
 
                 </div>
 
-                <div class="w-full lg:w-7/12 p-8 lg:p-12 flex flex-col justify-center rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none">
+                <div class="w-full lg:w-7/12 p-5 sm:p-8 lg:p-12 flex flex-col justify-center rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none">
                     <div class="mb-8">
                         <p class="text-slate-500 font-medium mb-1 uppercase tracking-wider text-sm flex items-center gap-2">
                             <i data-lucide="trending-down" class="w-4 h-4 text-red-500"></i> Seu Prejuízo Estimado Atual
                         </p>
-                        <div class="text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter">
-                            <span id="monthly-loss-display-main">R$ 10.440</span> <span class="text-xl text-slate-400 font-medium tracking-normal">/mês</span>
+                        <div class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-tight break-words">
+                            <span id="monthly-loss-display-main">R$ 10.440</span>
+                            <span class="block sm:inline text-lg sm:text-xl text-slate-400 font-medium tracking-normal">/mês</span>
                         </div>
                         <p class="text-slate-600 mt-2">
                             Isso equivale a um rombo de <strong id="yearly-loss-display-sub">R$ 125.280</strong> <strong> por ano</strong>, ou cerca de <span id="loss-volume-display">1.800</span> litros que evaporam do seu balanço mensalmente.
                         </p>
                     </div>
 
-                    <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 relative overflow-hidden">
+                    <div class="bg-emerald-50 rounded-2xl p-5 sm:p-6 border border-emerald-100 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 opacity-50"></div>
                         <p class="text-emerald-800 font-bold mb-2 flex items-center gap-2">
                             <i data-lucide="trending-up" class="w-5 h-5"></i> Potencial de Recuperação com Concilia
                         </p>
-                        <div class="text-4xl font-extrabold text-emerald-700 mb-2" id="savings-display">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-emerald-700 mb-2" id="savings-display">
                             R$ 5.742
                         </div>
                         <p class="text-emerald-700/80 text-sm relative z-10">
@@ -206,17 +208,17 @@
         </div>
     </section>
 
-<section id="solucao" class="py-24 bg-slate-50 border-t border-slate-200">
+<section id="solucao" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Por que o Concilia não é um opcional, é ESSENCIAL.</h2>
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">Por que o Concilia não é um opcional, é ESSENCIAL.</h2>
                 <p class="text-lg text-slate-600">
                     Sistemas genéricos apenas "mostram" dados. A plataforma Concilia age ativamente sobre o seu estoque e sua logística para maximizar margens.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                     <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="bar-chart-3" class="w-7 h-7 text-blue-600"></i>
                     </div>
@@ -230,7 +232,7 @@
                     </ul>
                 </div>
                           
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-500/30 ring-1 ring-emerald-500/10 relative hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-emerald-500/30 ring-1 ring-emerald-500/10 relative hover:shadow-md transition-shadow">
                     <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl">
                         O mais revolucionário
                     </div>
@@ -247,7 +249,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                     <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="map" class="w-7 h-7 text-purple-600"></i>
                     </div>
@@ -264,11 +266,11 @@
         </div>
     </section>
 
-    <section class="py-24 bg-white border-t border-slate-200">
+    <section class="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                 <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm">Muito mais que um sistema</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">A Plataforma Definitiva para Gestão de Combustíveis</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">A Plataforma Definitiva para Gestão de Combustíveis</h2>
                 <p class="text-lg text-slate-600">
                     O Concilia mergulha fundo na sua operação, conectando dados de pista, subsolo e logística para entregar uma visão 360º unificada e acionável.
                 </p>
@@ -298,8 +300,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="imagens/mapa.png" alt="Dashboard Geográfico" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
+                    <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-inner">
+                        <img src="imagens/mapa.png" alt="Dashboard Geográfico" class="w-full h-auto rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -325,8 +327,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="imagens/multiposto.png" alt="Multiposto" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
+                    <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-inner">
+                        <img src="imagens/multiposto.png" alt="Multiposto" class="w-full h-auto rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -352,8 +354,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="imagens/tanque.png" alt="Tanque" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
+                    <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-inner">
+                        <img src="imagens/tanque.png" alt="Tanque" class="w-full h-auto rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -406,8 +408,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                        <img src="imagens/reposicaointeligente.png" alt="Reposição Inteligente" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
+                    <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-inner">
+                        <img src="imagens/reposicaointeligente.png" alt="Reposição Inteligente" class="w-full h-auto rounded-xl shadow-md opacity-90 mix-blend-multiply" loading="lazy" />
                     </div>
                 </div>
 
@@ -415,14 +417,14 @@
         </div>
     </section>
 
-    <section id="contato" class="bg-emerald-950 py-24 relative overflow-hidden">
+    <section id="contato" class="bg-emerald-950 py-16 sm:py-24 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                 
                 <div>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para blindar o caixa dos seus postos?</h2>
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6">Pronto para blindar o caixa dos seus postos?</h2>
                     <p class="text-emerald-100 text-lg mb-8 leading-relaxed">
                         Sua rede perde dinheiro todos os dias com ferramentas genéricas. Fale agora com nossos especialistas em rentabilidade de postos e descubra como o Concilia se paga já no primeiro mês de uso.
                     </p>
@@ -467,7 +469,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl relative">
+                <div class="bg-white rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl relative">
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400 rounded-full blur-3xl opacity-20"></div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Demonstração Gratuita</h3>
                     
