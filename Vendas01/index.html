@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concilia - Calculadora de Vendas</title>
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Substituindo o "emerald" padrão pela paleta Viaflex (#2c6d5a como base 700)
+                        emerald: {
+                            50: '#f2f7f5',
+                            100: '#e1efe9',
+                            200: '#c5e0d5',
+                            300: '#9bc8b9',
+                            400: '#6aa895',
+                            500: '#488c78',
+                            600: '#35705e',
+                            700: '#2c6d5a', 
+                            800: '#25584a',
+                            900: '#1f483d',
+                            950: '#102923',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <div class="flex items-center">
+                <a href="#">
+                    <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\logo_concilia_green.png" alt="Logo Concilia" class="h-10 w-auto">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#calculadora" class="text-slate-600 hover:text-emerald-700 font-medium transition-colors">Calculadora de Prejuízo Invisível</a>
+                <a href="#solucao" class="text-slate-600 hover:text-emerald-700 font-medium transition-colors">Conheça o Concilia</a>
+            </div>
+            <a href="#contato" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                Falar com Especialista
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-emerald-900 text-white py-20 lg:py-32 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full fill-current">
+                <polygon points="0,100 100,0 100,100" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-800/50 border border-emerald-700/50 backdrop-blur-sm text-emerald-100 text-sm font-medium">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
+                        Pare de perder dinheiro
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                        Seu lucro está evaporando sem você saber?
+                    </h1>
+                    <p class="text-lg md:text-xl text-emerald-100/90 leading-relaxed max-w-lg">
+                        Erros de descarga, frete ineficiente e vazamentos não detectados corroem até 1% do faturamento da sua rede. O <strong>Concilia</strong> transforma dados com inteligência em lucro imediato!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#calculadora" class="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 w-max">
+                            Calcular meu prejuízo invisível <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block">
+                    <img 
+                        src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\mockup.png" 
+                        alt="Dashboard Concilia" 
+                        class="rounded-2xl shadow-2xl w-full object-cover border border-emerald-700/50"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculadora" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Calculadora de Prejuízo Invisível</h2>
+                <p class="text-lg text-slate-600">
+                    Mova os controles abaixo com os dados reais da sua operação. Descubra o quanto a falta de conciliação precisa e a logística reativa estão custando ao seu negócio por ano.
+                </p>
+            </div>
+
+            <!-- Fix here: Removed overflow-hidden to allow the popup to escape the container bounds -->
+            <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col lg:flex-row">
+                
+                <div class="w-full lg:w-5/12 p-8 lg:p-12 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-center space-y-8 rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
+                    
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-semibold text-slate-700">Número de Postos na Rede</label>
+                            <span class="font-bold text-emerald-700" id="stations-display">1 unidade</span>
+                        </div>
+                        <input 
+                            type="range" min="1" max="50" step="1" value="1" id="stations-input"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+                        />
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-semibold text-slate-700">Venda Média p/ Posto (Litros/Mês)</label>
+                            <span class="font-bold text-emerald-700" id="volume-display">300.000 L</span>
+                        </div>
+                        <input 
+                            type="range" min="50000" max="1000000" step="10000" value="300000" id="volume-input"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+                        />
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-semibold text-slate-700">Preço Médio de Venda (R$)</label>
+                            <span class="font-bold text-emerald-700" id="price-display">R$ 5,80</span>
+                        </div>
+                        <input 
+                            type="range" min="4.00" max="8.00" step="0.10" value="5.80" id="price-input"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+                        />
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-semibold text-slate-700">Estimativa de Perda (Sobras/Faltas) %</label>
+                            <span class="font-bold text-red-600" id="loss-display">0.60%</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mb-2 relative">
+                            A média de mercado por erro de medição, temperatura e descargas imprecisas é de 0.6%.
+                            <button 
+                                id="btn-breakdown"
+                                class="ml-1 text-emerald-600 hover:text-emerald-700 font-semibold inline-flex items-center gap-1 cursor-pointer transition-colors"
+                            >
+                                <i data-lucide="info" class="w-3 h-3"></i> Fonte: ANP e EQ/UFRJ
+                            </button>
+                            
+                            <!-- Breakdown Popup (Z-index high, absolute positioned) -->
+                            <div id="breakdown-popup" class="hidden absolute z-50 top-full mt-2 left-0 w-full md:w-96 bg-white border border-slate-200 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] rounded-xl p-5 text-slate-600 text-xs space-y-3">
+                                <p><strong>Erros Operacionais e de Medição (40%):</strong> É a maior fatia do prejuízo financeiro. Inclui diferenças entre o que diz a nota fiscal e o que realmente cai no tanque, erros de leitura da régua manual e bombas descalibradas entregando mais produto do que cobram.</p>
+                                <p><strong>Evaporação (30%):</strong> Combustível que vira gás e se perde na atmosfera durante o descarregamento ou pelos respiros dos tanques.</p>
+                                <p><strong>Encolhimento pelo Frio (15%):</strong> O volume do líquido diminui (contração térmica) quando o combustível que viajou quente no asfalto é despejado no tanque subterrâneo que é bem mais frio.</p>
+                                <p><strong>Furtos e Fraudes (10%):</strong> Desvios nas rodovias antes da entrega, manipulação do sistema por funcionários ou fraudes eletrônicas nas bombas.</p>
+                                <p><strong>Vazamentos (5%):</strong> Gotejamentos estruturais, furos e microvazamentos silenciosos nas tubulações e tanques do subsolo.</p>
+                                <button id="btn-close-breakdown" class="w-full text-center text-slate-400 font-medium pt-2 border-t mt-2 hover:text-slate-600">Fechar</button>
+                            </div>
+                        </div>
+                        <input 
+                            type="range" min="0.1" max="2.0" step="0.1" value="0.6" id="loss-input"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-red-500"
+                        />
+                    </div>
+
+                </div>
+
+                <div class="w-full lg:w-7/12 p-8 lg:p-12 flex flex-col justify-center rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none">
+                    <div class="mb-8">
+                        <p class="text-slate-500 font-medium mb-1 uppercase tracking-wider text-sm flex items-center gap-2">
+                            <i data-lucide="trending-down" class="w-4 h-4 text-red-500"></i> Seu Prejuízo Estimado Atual
+                        </p>
+                        <div class="text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter">
+                            <span id="monthly-loss-display-main">R$ 10.440</span> <span class="text-xl text-slate-400 font-medium tracking-normal">/mês</span>
+                        </div>
+                        <p class="text-slate-600 mt-2">
+                            Isso equivale a um rombo de <strong id="yearly-loss-display-sub">R$ 125.280</strong> <strong> por ano</strong>, ou cerca de <span id="loss-volume-display">1.800</span> litros que evaporam do seu balanço mensalmente.
+                        </p>
+                    </div>
+
+                    <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 opacity-50"></div>
+                        <p class="text-emerald-800 font-bold mb-2 flex items-center gap-2">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i> Potencial de Recuperação com Concilia
+                        </p>
+                        <div class="text-4xl font-extrabold text-emerald-700 mb-2" id="savings-display">
+                            R$ 5.742
+                        </div>
+                        <p class="text-emerald-700/80 text-sm relative z-10">
+                            Retorno <strong>mensal</strong> médio garantido pelo controle milimétrico de descargas, alertas de temperatura e eliminação de frete subutilizado.
+                        </p>
+                        
+                        <a href="#contato" class="mt-6 w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md flex items-center justify-center gap-2 relative z-10">
+                            Quero recuperar esse dinheiro <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE SOLUÇÃO -->
+<section id="solucao" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Por que o Concilia não é um opcional, é ESSENCIAL.</h2>
+                <p class="text-lg text-slate-600">
+                    Sistemas genéricos apenas "mostram" dados. A plataforma Concilia age ativamente sobre o seu estoque e sua logística para maximizar margens.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Auditoria de Descargas</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Comprou 30.000L e o caminhão entregou 29.750L? Nosso sistema cruza o volume real entregue no tanque (ajustado por temperatura) com a nota fiscal. Saiba exatamente onde está o furo.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Relatórios automáticos e confiáveis</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Alerta de falhas no sensor</li>
+                    </ul>
+                </div>
+                          
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-500/30 ring-1 ring-emerald-500/10 relative hover:shadow-md transition-shadow">
+                    <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl">
+                        O mais revolucionário
+                    </div>
+                    <div class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="truck" class="w-7 h-7 text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Reposição Inteligente</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Esqueça planilhas manuais. O sistema lê os níveis, calcula a autonomia de cada tanque e ajuda a montar o pedido perfeito, alocando o volume exato por compartimento da frota.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Fim do Frete Morto</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Previsão de Término de Estoque</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="map" class="w-7 h-7 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Dashboard de Monitoramento</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Administra 1 ou 50 postos? Veja todos no mapa. Nosso Dashboard consolida capacidade total, volume atual e status de sensores em uma única visão gerencial e intuitiva.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Mapa geolocalizado de unidades</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Status de Sensores (Operacional/Alerta)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm">Muito mais que um sistema</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">A Plataforma Definitiva para Gestão de Combustíveis</h2>
+                <p class="text-lg text-slate-600">
+                    O Concilia mergulha fundo na sua operação, conectando dados de pista, subsolo e logística para entregar uma visão 360º unificada e acionável.
+                </p>
+            </div>
+
+            <div class="space-y-16 lg:space-y-24">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="map" class="w-6 h-6 text-emerald-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Visão Multi-Postos e Mapa Geográfico</h3>
+                        <p class="text-slate-600 mb-6">Controle sua rede inteira de cima. O <strong>Menu Mapa</strong> exibe a localização exata de cada posto com o resumo visual imediato de todos os tanques (litragem e última leitura).</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Dashboard Consolidado:</strong> Capacidade total, volumes atuais e vazios de toda a rede em tempo real.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Status por Combustível:</strong> Identificação rápida de tanques com falha ou precisando de atenção.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Exportação Poderosa:</strong> Relatórios detalhados em PDF e planilhas por data e agrupamentos.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
+                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\mapa.png" alt="Dashboard Geográfico" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center flex-col-reverse lg:flex-row-reverse">
+                    <div class="lg:pl-8">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="leaf" class="w-6 h-6 text-emerald-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Monitoramento Ambiental e de Sensores</h3>
+                        <p class="text-slate-600 mb-6">Mantenha seu negócio seguro e dentro das normas ambientais rigorosas. O Concilia monitora constantemente a integridade dos seus equipamentos para evitar desastres ecológicos e pesadas multas.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Status Contínuo:</strong> Acompanhamento 24/7 de todos os sensores conectados aos tanques e bombas.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Alertas de Líquido:</strong> Detecção imediata de água no combustível ou vazamentos no espaço intersticial.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="settings" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Diagnóstico de Erros Críticos:</strong> Saiba instantaneamente quando um equipamento apresenta falha de comunicação ou necessita de manutenção.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
+                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\multiposto.png" alt="Multiposto" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="activity" class="w-6 h-6 text-blue-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Detalhamento por Posto</h3>
+                        <p class="text-slate-600 mb-6">Ao clicar em um posto, você tem acesso granular a cada gota que entra, fica e sai da sua operação, com gráficos interativos e previsões térmicas.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="database" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Controle de Níveis:</strong> Gráficos de níveis de estoque, previsão de término e dados da última descarga.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="fuel" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Saídas Consolidadas:</strong> Entenda a saída de cada tanque por hora ou dia para planejar melhor sua demanda.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="activity" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Central de Sensores:</strong> Códigos, descrições de funcionamento, alertas de líquido e erros críticos.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
+                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\tanque.png" alt="Tanque" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center flex-col-reverse lg:flex-row-reverse">
+                    <div class="lg:pl-8">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="truck" class="w-6 h-6 text-purple-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">A Jornada da Reposição Inteligente</h3>
+                        <p class="text-slate-600 mb-6">Um fluxo de trabalho desenhado para economizar horas do gestor. Construa o pedido perfeito guiado por dados reais em apenas 4 etapas.</p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">1</div>
+                                    <div class="w-0.5 h-full bg-purple-200 my-1"></div>
+                                </div>
+                                <div class="pb-4">
+                                    <h4 class="font-bold text-slate-800">Seleção Inteligente de Tanques</h4>
+                                    <p class="text-sm text-slate-600">O sistema lê os volumes de cada posto, indicando a autonomia e ajudando a priorizar qual unidade precisa de combustível urgentemente.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">2</div>
+                                    <div class="w-0.5 h-full bg-purple-200 my-1"></div>
+                                </div>
+                                <div class="pb-4">
+                                    <h4 class="font-bold text-slate-800">Distribuidora e Frota (FOB/CIF)</h4>
+                                    <p class="text-sm text-slate-600">Escolha sua distribuidora e defina a operação: frota própria (selecionando veículos como Bitrem ou Carretas cadastradas) ou transporte terceirizado (CIF).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">3</div>
+                                    <div class="w-0.5 h-full bg-purple-200 my-1"></div>
+                                </div>
+                                <div class="pb-4">
+                                    <h4 class="font-bold text-slate-800">Mapeamento de Compartimentos</h4>
+                                    <p class="text-sm text-slate-600">Defina perfeitamente o volume! Aloque o combustível exato em cada compartimento do caminhão (C1, C2, C3) evitando o temido frete morto.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">4</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800">Gerar Pedido e Enviar</h4>
+                                    <p class="text-sm text-slate-600">Com apenas um clique, consolide todas as informações e envie o pedido de compra estruturado direto para a sua distribuidora.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-inner">
+                        <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\reposicaointeligente.png" alt="Reposição Inteligente" class="rounded-xl shadow-md opacity-90 mix-blend-multiply" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Qualification Form CTA -->
+    <section id="contato" class="bg-emerald-950 py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para blindar o caixa dos seus postos?</h2>
+                    <p class="text-emerald-100 text-lg mb-8 leading-relaxed">
+                        Sua rede perde dinheiro todos os dias com ferramentas genéricas. Fale agora com nossos especialistas em rentabilidade de postos e descubra como o Concilia se paga já no primeiro mês de uso.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-800/50 flex items-center justify-center border border-emerald-700/50 flex-shrink-0">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Aumento de Margem</h4>
+                                <p class="text-emerald-200/80 text-xs mt-1">Recupere o lucro perdido em variações térmicas e sobras.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-800/50 flex items-center justify-center border border-emerald-700/50 flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Proteção contra Fraudes</h4>
+                                <p class="text-emerald-200/80 text-xs mt-1">Controle rigoroso do que foi faturado vs. descarregado.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-800/50 flex items-center justify-center border border-emerald-700/50 flex-shrink-0">
+                                <i data-lucide="truck" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Otimização Logística</h4>
+                                <p class="text-emerald-200/80 text-xs mt-1">Acabe com fretes mortos e otimize compartimentos da frota.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-800/50 flex items-center justify-center border border-emerald-700/50 flex-shrink-0">
+                                <i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Produtividade e Eficiência Operacional</h4>
+                                <p class="text-emerald-200/80 text-xs mt-1">Faça pedidos e gere relatórios com dados 100% confiáveis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl relative">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400 rounded-full blur-3xl opacity-20"></div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Demonstração Gratuita</h3>
+                    
+                    <form id="lead-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Nome Completo</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Empresa / Rede</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Nome do posto" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">E-mail Profissional</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="voce@empresa.com.br" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Telefone / WhatsApp</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(00) 00000-0000" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Quantos postos possui na rede?</label>
+                            <select class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                                <option value="1-3">1 a 3 postos</option>
+                                <option value="4-10">4 a 10 postos</option>
+                                <option value="11-30">11 a 30 postos</option>
+                                <option value="31+">Mais de 31 postos</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Qual é o seu maior desafio hoje?</label>
+                            <select class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                                <option value="Controle de Estoque">Perdas e Controle de Estoque</option>
+                                <option value="Logística">Problemas na Logística / Frete</option>
+                                <option value="Conferência de Descargas">Dificuldade em auditar descargas</option>
+                                <option value="Gestão Centralizada">Falta de visão centralizada da rede</option>
+                                <option value="Outro">Outros desafios</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/30 mt-4 flex justify-center items-center gap-2">
+                            Agendar Demonstração <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                        <p class="text-center text-xs text-slate-500 mt-4">
+                            Ao enviar, você concorda com nossos termos de privacidade.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <div class="flex items-center">
+                <a href="#">
+                    <img src="C:\Users\pablo\OneDrive - UDESC Universidade do Estado de Santa Catarina\Documentos\Github\Vendas01\imagens\logo_concilia_white.png" alt="Logo Concilia" class="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity">
+                </a>
+            </div>
+            <p>© 2026 Viaflex. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic (Vanilla JavaScript) -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Formatter function for Brazilian Real (BRL)
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                maximumFractionDigits: 0,
+            }).format(value);
+        };
+
+        const formatNumber = (value) => {
+            return new Intl.NumberFormat('pt-BR').format(value);
+        }
+
+        // Get Input Elements
+        const stationsInput = document.getElementById('stations-input');
+        const volumeInput = document.getElementById('volume-input');
+        const priceInput = document.getElementById('price-input');
+        const lossInput = document.getElementById('loss-input');
+
+        // Get Display Elements
+        const stationsDisplay = document.getElementById('stations-display');
+        const volumeDisplay = document.getElementById('volume-display');
+        const priceDisplay = document.getElementById('price-display');
+        const lossDisplay = document.getElementById('loss-display');
+        
+        const monthlyLossDisplayMain = document.getElementById('monthly-loss-display-main');
+        const yearlyLossDisplaySub = document.getElementById('yearly-loss-display-sub');
+        const lossVolumeDisplay = document.getElementById('loss-volume-display');
+        const savingsDisplay = document.getElementById('savings-display');
+
+        // Function to recalculate and update DOM
+        function calculateROI() {
+            const stations = parseFloat(stationsInput.value);
+            const volumePerStation = parseFloat(volumeInput.value);
+            const pricePerLiter = parseFloat(priceInput.value);
+            const lossPercentage = parseFloat(lossInput.value);
+
+            // Update Input Texts
+            stationsDisplay.textContent = `${stations} ${stations === 1 ? 'unidade' : 'unidades'}`;
+            volumeDisplay.textContent = `${formatNumber(volumePerStation)} L`;
+            priceDisplay.textContent = `R$ ${pricePerLiter.toFixed(2).replace('.', ',')}`;
+            lossDisplay.textContent = `${lossPercentage.toFixed(2)}%`;
+
+            // Core Math
+            const totalMonthlyVolume = stations * volumePerStation;
+            const monthlyLossVolume = totalMonthlyVolume * (lossPercentage / 100);
+            const monthlyFinancialLoss = monthlyLossVolume * pricePerLiter;
+            const yearlyFinancialLoss = monthlyFinancialLoss * 12;
+
+            const estimatedMonthlySavings = monthlyFinancialLoss * 0.55;
+
+            // Update Results Texts
+            monthlyLossDisplayMain.textContent = formatCurrency(monthlyFinancialLoss);
+            yearlyLossDisplaySub.textContent = formatCurrency(yearlyFinancialLoss);
+            lossVolumeDisplay.textContent = formatNumber(monthlyLossVolume);
+            savingsDisplay.textContent = formatCurrency(estimatedMonthlySavings);
+        }
+
+        // Add Event Listeners to inputs
+        [stationsInput, volumeInput, priceInput, lossInput].forEach(input => {
+            input.addEventListener('input', calculateROI);
+        });
+
+        // Initialize calculator with default values
+        calculateROI();
+
+        // Breakdown Popup Logic
+        const btnBreakdown = document.getElementById('btn-breakdown');
+        const btnCloseBreakdown = document.getElementById('btn-close-breakdown');
+        const breakdownPopup = document.getElementById('breakdown-popup');
+
+        btnBreakdown.addEventListener('click', () => {
+            breakdownPopup.classList.toggle('hidden');
+        });
+
+        btnCloseBreakdown.addEventListener('click', () => {
+            breakdownPopup.classList.add('hidden');
+        });
+
+        // Form Submit Prevent Default (for demonstration purposes)
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Formulário enviado com sucesso! Nosso especialista entrará em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
